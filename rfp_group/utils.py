@@ -8,6 +8,7 @@ def expand_range(prefix, start, end):
 
 def parse_and_expand(input_str):
     """콤마로 구분된 문자열을 받아 확장된 리스트를 반환합니다."""
+    input_str = input_str.replace(" ","")
     parts = input_str.split(',')
     expanded_list = []
 
