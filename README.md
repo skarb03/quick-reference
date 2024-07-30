@@ -28,5 +28,7 @@ DirectoryPath = ppt파일경로
 
 4. rfp_group/main.py 실행
 
-
+5. 윈도우 실행  configparser UnicodeDecodeError: 'cp949' 에러 발생시
+   환경변수 PYTHONUTF8 추가 아래 그림과 같이
+![image](https://github.com/user-attachments/assets/920f42f5-0972-49e0-a973-3bf903ae9af0)
 
