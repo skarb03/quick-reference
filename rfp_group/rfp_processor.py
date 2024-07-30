@@ -29,22 +29,19 @@ def process_excel_file(input_path, output_path):
     }
 
     for name, group in df_rfp.groupby('rfp'):
+        combined_titles = "\n".join(group['목차'])
         if len(group) == 1:
             merged_data['rfp'].append(group.iloc[0]['rfp'])
-            merged_data['목차'].append(group.iloc[0]['목차'])
+            merged_data['목차'].append(combined_titles)
             merged_data['페이지'].append(group.iloc[0]['페이지'])
         else:
             pages = group['페이지'].tolist()
             formatted_pages = format_pages(pages)
             
             merged_data['rfp'].append(name)
-            merged_data['목차'].append(group.iloc[0]['목차'])
+            merged_data['목차'].append(combined_titles)
             merged_data['페이지'].append(formatted_pages)
             
-            for i in range(1, len(group)):
-                merged_data['rfp'].append('')
-                merged_data['목차'].append(group.iloc[i]['목차'])
-                merged_data['페이지'].append('')
 
     # 병합된 데이터로 새로운 데이터프레임 생성
     merged_df = pd.DataFrame(merged_data)
