@@ -20,7 +20,7 @@ pip3 install python-pptx pandas openpyxl pathlib requests
 PageNo = 페이지번호(없어도됨)
 Title = 제목
 Rfp = rfp정보
-EvalItem= 평가항목명
+Navigation= 네비게이션
 DirectoryPath = ppt파일경로
 ```
 

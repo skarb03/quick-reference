@@ -29,7 +29,7 @@ def extract_slide_data(ppt_file_path, config):
         'title': [],
         'rfp': [],
         'page_no': [],
-        'eval_item': []
+        'navigation': []
     }
     
     for slide_number, slide in enumerate(presentation.slides, start=0):
@@ -40,7 +40,7 @@ def extract_slide_data(ppt_file_path, config):
             title_text = ''
             rfp_text = ''
             page_no_text = ''
-            eval_item_text = ''
+            navigation_text = ''
             
             all_shapes = extract_shapes(slide)
 
@@ -53,8 +53,8 @@ def extract_slide_data(ppt_file_path, config):
                         rfp_text = shape.text
                     elif shape_name == config['PageNo']:
                         page_no_text = shape.text
-                    elif shape_name == config['EvalItem']:
-                        eval_item_text = shape.text
+                    elif shape_name == config['Navigation']:
+                        navigation_text = shape.text
         
             if page_no_text == '':
                 page_no_text = create_page_no(slide_number, file_name)
@@ -62,7 +62,7 @@ def extract_slide_data(ppt_file_path, config):
             slide_data['title'].append(title_text)
             slide_data['rfp'].append(rfp_text)
             slide_data['page_no'].append(page_no_text)
-            slide_data['eval_item'].append(eval_item_text)
+            slide_data['navigation'].append(navigation_text)
   
     return slide_data
 

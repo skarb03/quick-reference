@@ -5,7 +5,7 @@ def merge_data(ppts_data):
         '파일명': [],
         '슬라이드번호': [],
         '제목': [],
-        '평가항목': [],
+        '네비게이션': [],
         '페이지': [],
         'rfp': []
     }
@@ -14,7 +14,7 @@ def merge_data(ppts_data):
         merge_data['파일명'].extend(data['file_name'])
         merge_data['슬라이드번호'].extend(data['slide_no'])
         merge_data['제목'].extend(data['title'])
-        merge_data['평가항목'].extend(data['eval_item'])
+        merge_data['네비게이션'].extend(data['navigation'])
         merge_data['페이지'].extend(data['page_no'])
         merge_data['rfp'].extend(data['rfp'])
     
