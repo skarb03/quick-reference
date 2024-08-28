@@ -50,7 +50,10 @@ def extract_slide_data(ppt_file_path, config):
                     if shape_name == config['Title']:
                         title_text = file_name[0] + "." + shape.text
                     elif shape_name == config['Rfp']:
-                        rfp_text = shape.text
+                        if rfp_text != '':
+                            rfp_text = rfp_text+','+shape.text
+                        else : 
+                            rfp_text = shape.text
                     elif shape_name == config['PageNo']:
                         page_no_text = shape.text
                     elif shape_name == config['Navigation']:
