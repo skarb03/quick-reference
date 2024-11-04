@@ -6,30 +6,6 @@ def expand_range(prefix, start, end):
     end_num = int(end)
     return [f"{prefix}{str(num).zfill(len(start))}" for num in range(start_num, end_num + 1)]
 
-# def parse_and_expand(input_str):
-#     """콤마로 구분된 문자열을 받아 확장된 리스트를 반환합니다."""
-#     input_str = input_str.replace(" ","")
-#     parts = input_str.split(',')
-#     expanded_list = []
-
-#     for part in parts:
-#         if '~' in part:
-#             match = re.match(r"([a-zA-Z]+-)(\d+)~(\d+)", part)
-#             if match:
-#                 prefix, start, end = match.groups()
-#                 expanded_list.extend(expand_range(prefix, start, end))
-#         else:
-#             match = re.match(r"([a-zA-Z]+-)?(\d+)", part)
-#             if match:
-#                 prefix, number = match.groups()
-#                 if prefix is None:
-#                     # 이전 접두사를 사용하여 번호를 확장합니다.
-#                     prev_prefix, prev_number = re.match(r"([a-zA-Z]+-)(\d+)", expanded_list[-1]).groups()
-#                     expanded_list.append(f"{prev_prefix}{number.zfill(len(prev_number))}")
-#                 else:
-#                     expanded_list.append(f"{prefix}{number}")
-
-#     return expanded_list
 def parse_and_expand(input_str):
     """콤마로 구분된 문자열을 받아 확장된 리스트를 반환합니다."""
     input_str = input_str.replace(" ", "")
@@ -53,17 +29,13 @@ def parse_and_expand(input_str):
             match = re.match(r"([a-zA-Z]+-)?(\d+)", part)
             if match:
                 prefix, number = match.groups()
-                if prefix:
-																				 
-                    last_prefix = prefix
-																						  
-					 
+                if prefix:						 
+                    last_prefix = prefix															  
                     expanded_list.append(f"{prefix}{number}")
                 elif not prefix and last_prefix:
                     expanded_list.append(f"{last_prefix}{number}")
 
     return expanded_list
-
 
 def format_pages(pages):
     def page_key(page):
