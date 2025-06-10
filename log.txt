@@ -1,0 +1,23 @@
+
+[process_excel_file 에러]
+Traceback (most recent call last):
+  File "C:\Users\skarb\quick-reference\rfp_group\rfp_processor.py", line 32, in process_excel_file
+    combined_titles = "\n".join(group['목차'])
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: sequence item 0: expected str instance, float found
+2025-06-10 17:14:57,059 [ERROR] RFP 처리 중 예외 발생:
+Traceback (most recent call last):
+  File "C:\Users\skarb\quick-reference\main.py", line 127, in main
+    run_rfp_group(input_file, output_file)
+  File "C:\Users\skarb\quick-reference\main.py", line 35, in run_rfp_group
+    process_excel_file(input_file, output_file)
+  File "C:\Users\skarb\quick-reference\rfp_group\rfp_processor.py", line 32, in process_excel_file
+    combined_titles = "\n".join(group['목차'])
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: sequence item 0: expected str instance, float found
+
+DEBUG:root:📌 rfp_processor.py 실행 시작됨
+DEBUG:root:📌 rfp_processor.py 실행 시작됨
+DEBUG:root:📌 rfp_processor.py 실행 시작됨
+DEBUG:root:엑셀 파일 읽기 시작: C:/dev/quick/rfp/제안서_슬라이드_정보13.xlsx
+DEBUG:root:병합된 데이터 저장 시작
